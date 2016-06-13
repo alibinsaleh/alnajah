@@ -19,7 +19,16 @@ Route::get('/', function () {
 //     return view('admin.index');
 // });
 
+
+Route::resource('/distributors', 'DistributorsController');
+Route::resource('/salespoints', 'SalesPointsController');
+
+
+$router->group(['middleware' => 'auth'], 
+  function() {
+    
+});
+
 Route::get('login', function () {
     return view('admin.login');
 })->name('login');
-
